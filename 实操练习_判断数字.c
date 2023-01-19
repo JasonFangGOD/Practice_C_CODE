@@ -1,0 +1,55 @@
+//判断给定的一个数是否为奇数或偶数、质数或合数、完数、水仙花数等
+//给：157 
+#include<stdio.h>
+int main()
+{
+	int num=157,i,sum=0,a,a1,a2;
+	if(num%2==0)//判断奇偶数 
+	{
+		printf("%d是偶数\n",num);
+	}
+	else
+	{
+		printf("%d是奇数\n",num);
+	}
+	for(i=2;i<=num-1;i++)//判断质数或合数
+	{
+		if(num%i==0)
+		{
+			printf("%d是合数\n",num);
+			break;
+		}
+	} 
+	if(i==num)
+	{
+	printf("%d是质数\n",num);
+	}
+	for(i=1;i<=num-1;i++)//判断完数 
+	{
+		if(num%i==0)
+		{
+			sum=sum+i;
+		}
+	}
+	if(sum==num)
+	{
+		printf("%d是完数\n",num);
+	}
+	else{
+		printf("%d不是完数\n",num);
+	}
+	//判断水仙花数 
+	a=num/100;//百位
+	a1=num/10%10;//十位
+	a2=num%10;//个位 
+	sum=a*a*a+a1*a1*a1+a2*a2*a2;
+	if(sum==num)
+	{
+		printf("%d是水仙花数\n",num);
+	}
+	else
+	{
+		printf("%d不是水仙花数\n",num);
+	}
+	return 0;
+}
